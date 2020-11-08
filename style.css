@@ -1,3 +1,7 @@
 body {
     background: lightgrey;
 }
+
+#book_list {
+    background: grey;
+}
