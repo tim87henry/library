@@ -1,7 +1,45 @@
 body {
+    margin: 0;
     background: lightgrey;
 }
 
+#header {
+    height: 40px;
+    background: chocolate;
+}
+
+#title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    vertical-align: middle;
+    padding: 8px;
+}
+
 #book_list {
-    background: grey;
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+    
+#newBook {
+    background: darkgrey;
+    margin: 40px 70px 20px 70px;
+    font-size: 20px;
+    height: 250px;
+    width: 250px;
+}
+
+#bookDiv {
+    background: salmon;
+    height: 150px;
+    padding: 5px 5px 5px 5px;
+}
+
+#authorDiv {
+    background: mediumseagreen;
+    height: 100px;
+    padding: 5px 5px 5px 5px;
 }
