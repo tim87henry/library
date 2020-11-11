@@ -6,6 +6,23 @@
     <body>
         <div id="header">
             <div id="title">Library Catalogue</div>
+            <button id="add_book_button">Add Book</button>
+        </div>
+        <div id="modal_box">
+            <div id="add_book_form">
+                Book Name :
+                <input type="text" id="book_name"><br>
+                Author :
+                <input type="text" id="author_name"><br>
+                Number of pages :
+                <input type="text" name="num_pages"><br>
+                <input type="radio" name="has_read" id="yes">
+                <label for="has_read" value="yes" name="yes">Yes</label>
+                <input type="radio" name="has_read" id="no">
+                <label for="has_read" value="no" name="no">No</label><br>
+                <button id="add_button">Add</button>
+                <button id="close_button">Cancel</button>
+            </div>
         </div>
         <br><br>
         <div id="book_list"></div>

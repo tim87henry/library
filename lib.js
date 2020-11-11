@@ -10,8 +10,9 @@ function addBookToLibrary(bk) {
 }
 
 function displayBooks() {
+    var list_of_books=document.querySelector("#book_list")
+    list_of_books.innerHTML="";
     for (i=0;i<myLibrary.length;i++) {
-        var list_of_books=document.querySelector("#book_list")
         const newDiv = document.createElement("div");
         newDiv.id="newBook"
         const bookDiv = document.createElement("div");
@@ -43,3 +44,23 @@ addBookToLibrary(b6);
 const b7=new Book("The Girl with the Dragon Tattoo","Stieg Larsson");
 addBookToLibrary(b7);
 displayBooks();
+
+addBookBtn = document.getElementById("add_book_button")
+modalBox = document.getElementById("modal_box")
+closeBtn = document.getElementById("close_button")
+addBtn = document.getElementById("add_button")
+
+addBookBtn.onclick = function() {
+    modalBox.style.display="block";
+}
+
+closeBtn.onclick = function() {
+    modalBox.style.display="none";
+}
+
+addBtn.onclick = function() {
+    const newBook=new Book(document.getElementById("book_name").value,document.getElementById("author_name").value);
+    addBookToLibrary(newBook);
+    displayBooks();
+    modalBox.style.display="none";
+}

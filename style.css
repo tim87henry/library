@@ -6,24 +6,54 @@ body {
 #header {
     height: 40px;
     background: chocolate;
+    display: flex;
 }
 
 #title {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
+    line-height: 40px;
     vertical-align: middle;
-    padding: 8px;
+    width: 50%;
+    align-self: center;
+}
+
+#add_book_button {
+    font-size: 17px;
+    align-self: flex-end;
+}
+
+#modal_box {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5); 
+    z-index: 1;
+    overflow: auto;
+    position: fixed;
+}
+
+#add_book_form {
+    background: rgb(207, 126, 138);
+    padding: 30px;
+    height: 200px;
+    width: 450px;
+    position: absolute;
+    float: left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #book_list {
-    margin-top: 20px;
+    margin: 20px;
     text-align: center;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
 }
-    
+   
 #newBook {
     background: darkgrey;
     margin: 40px 70px 20px 70px;
