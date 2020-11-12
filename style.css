@@ -64,12 +64,32 @@ body {
 
 #bookDiv {
     background: salmon;
-    height: 150px;
+    height: 110px;
     padding: 5px 5px 5px 5px;
 }
 
 #authorDiv {
     background: mediumseagreen;
-    height: 100px;
+    height: 70px;
     padding: 5px 5px 5px 5px;
+}
+
+#lastRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#pagesDiv {
+    background: rgb(228, 212, 68);
+    height: 40px;
+    padding: 5px 5px 5px 5px;
+    width: 100%;
+}
+
+#readDiv {
+    background: rgb(170, 159, 59);
+    height: 40px;
+    padding: 5px 5px 5px 5px;
+    width: 100%;
 }
