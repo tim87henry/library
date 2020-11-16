@@ -1,10 +1,12 @@
 let myLibrary=[];
+let bookIndex=1
 
 function Book(name,author,pages,read) {
     this.name=name
     this.author=author
     this.pages=pages
     this.read=read
+    this.index=bookIndex++;
 }
 
 function addBookToLibrary(bk) {
@@ -22,12 +24,12 @@ function displayBooks() {
         bookDiv.id="bookDiv";
         const bookName = document.createTextNode(myLibrary[i].name);
         bookDiv.appendChild(bookName);
-        
+       
         const authorDiv = document.createElement("div");
         authorDiv.id="authorDiv";
         const authorName = document.createTextNode(myLibrary[i].author)
         authorDiv.appendChild(authorName);
-        
+       
         const lastRow = document.createElement("div");
         lastRow.id="lastRow";
 
@@ -44,13 +46,27 @@ function displayBooks() {
         }
         const readBook = document.createTextNode(hasRead);
         readDiv.appendChild(readBook);
-        
-        newDiv.appendChild(bookDiv);
-        newDiv.appendChild(authorDiv);
-        lastRow.appendChild(pagesDiv);
-        lastRow.appendChild(readDiv);
-        newDiv.appendChild(lastRow);
-        list_of_books.appendChild(newDiv);
+
+        const closeDiv = document.createElement("div");
+        closeDiv.id="closeDiv";
+        const closeBtn = document.createElement("button");
+        closeBtn.className="closeBtn";
+        closeBtn.innerHTML="&#10006";
+        closeBtn.dataset.indexNumber=i;
+        closeDiv.appendChild(closeBtn);
+
+        closeBtn.addEventListener("click",function() {
+            myLibrary.splice(closeBtn.dataset.indexNumber,1);
+            displayBooks();
+        });
+
+        newDiv.appendChild(closeDiv);
+            newDiv.appendChild(bookDiv);
+            newDiv.appendChild(authorDiv);
+            lastRow.appendChild(pagesDiv);
+            lastRow.appendChild(readDiv);
+            newDiv.appendChild(lastRow);
+            list_of_books.appendChild(newDiv);
     }
 }
 
@@ -74,8 +90,14 @@ addBookBtn = document.getElementById("add_book_button")
 modalBox = document.getElementById("modal_box")
 closeBtn = document.getElementById("close_button")
 addBtn = document.getElementById("add_button")
+var closeBookBtns = document.getElementsByClassName('closeBtn');
 
 addBookBtn.onclick = function() {
+    document.getElementById("book_name").value="";
+    document.getElementById("author_name").value="";
+    document.getElementById("num_pages").value="";
+    document.getElementsByName("has_read")[0].checked=false;
+    document.getElementsByName("has_read")[1].checked=false;
     modalBox.style.display="block";
 }
 
@@ -84,8 +106,7 @@ closeBtn.onclick = function() {
 }
 
 addBtn.onclick = function() {
-    //alert(document.getElementById("has_read").value);
-    const newBook=new Book(document.getElementById("book_name").value,document.getElementById("author_name").value,document.getElementById("num_pages").value,document.getElementById("has_read").value=="yes");
+    const newBook=new Book(document.getElementById("book_name").value,document.getElementById("author_name").value,document.getElementById("num_pages").value,document.getElementsByName("has_read")[0].checked);
     addBookToLibrary(newBook);
     displayBooks();
     modalBox.style.display="none";
