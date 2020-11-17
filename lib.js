@@ -1,12 +1,14 @@
 let myLibrary=[];
-let bookIndex=1
+let bookIndex=1;
+let newBook=true;
+let currentEditedBookIndex=0;
 
-function Book(name,author,pages,read) {
-    this.name=name
-    this.author=author
-    this.pages=pages
-    this.read=read
-    this.index=bookIndex++;
+function Book(name,author,pages,read,index=bookIndex) {
+    this.name=name;
+    this.author=author;
+    this.pages=pages;
+    this.read=read;
+this.index=bookIndex++;
 }
 
 function addBookToLibrary(bk) {
@@ -47,26 +49,47 @@ function displayBooks() {
         const readBook = document.createTextNode(hasRead);
         readDiv.appendChild(readBook);
 
-        const closeDiv = document.createElement("div");
-        closeDiv.id="closeDiv";
-        const closeBtn = document.createElement("button");
-        closeBtn.className="closeBtn";
-        closeBtn.innerHTML="&#10006";
-        closeBtn.dataset.indexNumber=i;
-        closeDiv.appendChild(closeBtn);
+const closeDiv = document.createElement("div");
+closeDiv.id="closeDiv";
+const closeBtn = document.createElement("button");
+closeBtn.className="closeBtn";
+closeBtn.innerHTML="&#10006";
+closeBtn.dataset.indexNumber=i;
 
-        closeBtn.addEventListener("click",function() {
-            myLibrary.splice(closeBtn.dataset.indexNumber,1);
-            displayBooks();
-        });
+const editBtn = document.createElement("button");
+editBtn.className="editBtn";
+editBtn.innerHTML="&#9998";
+editBtn.dataset.indexNumber=i;
 
-        newDiv.appendChild(closeDiv);
-            newDiv.appendChild(bookDiv);
-            newDiv.appendChild(authorDiv);
-            lastRow.appendChild(pagesDiv);
-            lastRow.appendChild(readDiv);
-            newDiv.appendChild(lastRow);
-            list_of_books.appendChild(newDiv);
+closeDiv.appendChild(editBtn);
+closeDiv.appendChild(closeBtn);
+
+editBtn.addEventListener("click",function() {
+document.getElementById("book_name").value=myLibrary[editBtn.dataset.indexNumber].name;
+document.getElementById("author_name").value=myLibrary[editBtn.dataset.indexNumber].author;
+document.getElementById("num_pages").value=myLibrary[editBtn.dataset.indexNumber].pages;
+if (myLibrary[editBtn.dataset.indexNumber].read) {
+document.getElementsByName("has_read")[0].checked=true;
+} else {
+document.getElementsByName("has_read")[1].checked=true;
+}
+currentEditedBookIndex=editBtn.dataset.indexNumber;
+newBook=false;
+modalBox.style.display="block";
+});
+
+closeBtn.addEventListener("click",function() {
+myLibrary.splice(closeBtn.dataset.indexNumber,1);
+displayBooks();
+});
+
+newDiv.appendChild(closeDiv);
+        newDiv.appendChild(bookDiv);
+        newDiv.appendChild(authorDiv);
+        lastRow.appendChild(pagesDiv);
+        lastRow.appendChild(readDiv);
+        newDiv.appendChild(lastRow);
+        list_of_books.appendChild(newDiv);
     }
 }
 
@@ -93,11 +116,11 @@ addBtn = document.getElementById("add_button")
 var closeBookBtns = document.getElementsByClassName('closeBtn');
 
 addBookBtn.onclick = function() {
-    document.getElementById("book_name").value="";
-    document.getElementById("author_name").value="";
-    document.getElementById("num_pages").value="";
-    document.getElementsByName("has_read")[0].checked=false;
-    document.getElementsByName("has_read")[1].checked=false;
+document.getElementById("book_name").value="";
+document.getElementById("author_name").value="";
+document.getElementById("num_pages").value="";
+document.getElementsByName("has_read")[0].checked=false;
+document.getElementsByName("has_read")[1].checked=false;
     modalBox.style.display="block";
 }
 
@@ -106,8 +129,20 @@ closeBtn.onclick = function() {
 }
 
 addBtn.onclick = function() {
-    const newBook=new Book(document.getElementById("book_name").value,document.getElementById("author_name").value,document.getElementById("num_pages").value,document.getElementsByName("has_read")[0].checked);
-    addBookToLibrary(newBook);
+    if (newBook) {
+const newBook=new Book(document.getElementById("book_name").value,document.getElementById("author_name").value,document.getElementById("num_pages").value,document.getElementsByName("has_read")[0].checked);
+addBookToLibrary(newBook);
+} else {
+myLibrary[currentEditedBookIndex].name=document.getElementById("book_name").value;
+myLibrary[currentEditedBookIndex].author=document.getElementById("author_name").value;
+myLibrary[currentEditedBookIndex].pages=document.getElementById("num_pages").value;
+if (document.getElementsByName("has_read")[0].checked) {
+myLibrary[currentEditedBookIndex].read=true;
+} else {
+myLibrary[currentEditedBookIndex].read=false;
+}
+newBook=true;
+}
     displayBooks();
     modalBox.style.display="none";
 }

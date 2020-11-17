@@ -1,27 +1,31 @@
 body {
     margin: 0;
-    background: lightgrey;
+    background: #EEE2DC;
 }
 
 #header {
     height: 40px;
-    background: chocolate;
+    background: rgb(228, 111, 93);
     display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #title {
-    text-align: center;
     font-size: 18px;
     font-weight: bold;
     line-height: 40px;
     vertical-align: middle;
-    width: 50%;
-    align-self: center;
 }
 
 #add_book_button {
-    font-size: 17px;
-    align-self: flex-end;
+    font-size: 18px;
+    justify-content: flex-end;
+	position: absolute;
+    right: 10px;
+    cursor: pointer;
+    background: rgb(228, 111, 93);
+    border: 0;
 }
 
 #modal_box {
@@ -64,24 +68,25 @@ body {
 
 #closeDiv {
 	text-align: right;
-	background: salmon;
+	background: rgb(223, 141, 135);
 	padding-right: 2px;
 }
 
-.closeBtn {
-	background:salmon;
+.closeBtn,.editBtn {
+	background: rgb(223, 141, 135);
 	cursor: pointer;
 	border: 0;
+	font-size: 18px;
 }
 
 #bookDiv {
-    background: salmon;
+    background: rgb(223, 141, 135);
     height: 110px;
     padding: 5px 5px 5px 5px;
 }
 
 #authorDiv {
-    background: mediumseagreen;
+    background: #E98074;
     height: 70px;
     padding: 5px 5px 5px 5px;
 }
@@ -90,17 +95,19 @@ body {
     display: flex;
     flex-direction: row;
     width: 100%;
+    border-top: 1px solid black;
 }
 
 #pagesDiv {
-    background: rgb(228, 212, 68);
+    background: #E98074;
     height: 40px;
     padding: 5px 5px 5px 5px;
     width: 100%;
+    border-right: 1px solid black;
 }
 
 #readDiv {
-    background: rgb(170, 159, 59);
+    background: #E98074;
     height: 40px;
     padding: 5px 5px 5px 5px;
     width: 100%;
