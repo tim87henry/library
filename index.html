@@ -1,6 +1,10 @@
 <html>
     <head>
         <link href="style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
         <title>Library App</title>
     </head>
     <body>
@@ -10,18 +14,34 @@
         </div>
         <div id="modal_box">
             <div id="add_book_form">
-                Book Name :
-                <input type="text" id="book_name"><br>
-                Author :
-                <input type="text" id="author_name"><br>
-                Number of pages :
-                <input type="text" id="num_pages"><br>
-                <input type="radio" name="has_read" id="yes" value="yes">
-                <label for="has_read" value="yes" name="yes">Yes</label>
-                <input type="radio" name="has_read" id="no" value="no">
-                <label for="has_read" value="no" name="no">No</label><br>
-                <button id="add_button">Add</button>
-                <button id="close_button">Cancel</button>
+                <table id="add_book_table">
+                    <tr>
+                        <td>Book Name </td>
+                        <td><input type="text" id="book_name"><br></td>
+                    </tr>
+                    <tr>
+                        <td>Author </td>
+                        <td><input type="text" id="author_name"><br></td>
+                    </tr>
+                    <tr>
+                        <td>Number of pages </td>
+                        <td><input type="text" id="num_pages"><br></td>
+                    </tr>
+                    <tr>
+                        <td>Read it?</td>
+                        <td>
+                            <input type="radio" name="has_read" id="yes" value="yes">
+                            <label for="has_read" value="yes" name="yes">Yes</label>
+                            <input type="radio" name="has_read" id="no" value="no">
+                            <label for="has_read" value="no" name="no">No</label><br>
+                        </td>
+                    </tr>
+                    <tr id="blank_row"></tr>
+                    <tr>
+                        <td id="add_cell"><button id="add_button">Add</button></td>
+                        <td id="close_cell"><button id="close_button">Cancel</button></td>
+                    </tr>
+                </table>
             </div>
         </div>
         <br><br>

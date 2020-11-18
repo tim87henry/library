@@ -1,30 +1,33 @@
 body {
     margin: 0;
-    background: #EEE2DC;
+    background: rgb(100, 132, 156);
 }
 
 #header {
     height: 40px;
-    background: rgb(228, 111, 93);
+    background: rgb(220, 220, 220);
     display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 #title {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
+    font-family: 'Lobster', cursive;
     line-height: 40px;
     vertical-align: middle;
 }
 
 #add_book_button {
-    font-size: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
     justify-content: flex-end;
 	position: absolute;
     right: 10px;
     cursor: pointer;
-    background: rgb(228, 111, 93);
+    background: rgb(220, 220, 220);
     border: 0;
 }
 
@@ -39,7 +42,7 @@ body {
 }
 
 #add_book_form {
-    background: rgb(207, 126, 138);
+    background: rgb(220, 220, 220);
     padding: 30px;
     height: 200px;
     width: 450px;
@@ -48,6 +51,36 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+#add_book_table {
+    margin: 0 auto;
+}
+
+#add_book_table td {
+    padding-right: 20px;
+}
+
+#blank_row {
+    height: 20px;
+}
+
+#add_cell, #close_cell {
+    padding-left: 30px;
+}
+
+#add_button, #close_button {
+    cursor: pointer;
+    background: rgb(220, 220, 220);
+    border: 0;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    width: 70px;
+}
+
+button::-moz-focus-inner { 
+    border: 0;
 }
 
 #book_list {
@@ -59,36 +92,36 @@ body {
 }
    
 #newBook {
-    background: darkgrey;
+    background: rgb(255, 229, 125);
     margin: 40px 70px 20px 70px;
     font-size: 20px;
-    height: 250px;
+    height: 278px;
     width: 250px;
+    font-family: 'Varela Round', sans-serif;
+    box-shadow: 20px 20px 30px rgba(0,0,0,0.4);
 }
 
 #closeDiv {
 	text-align: right;
-	background: rgb(223, 141, 135);
 	padding-right: 2px;
 }
 
 .closeBtn,.editBtn {
-	background: rgb(223, 141, 135);
+	background: rgb(255, 229, 125);
 	cursor: pointer;
 	border: 0;
 	font-size: 18px;
 }
 
 #bookDiv {
-    background: rgb(223, 141, 135);
     height: 110px;
     padding: 5px 5px 5px 5px;
 }
 
 #authorDiv {
-    background: #E98074;
     height: 70px;
     padding: 5px 5px 5px 5px;
+    border-top: 1px solid black;
 }
 
 #lastRow {
@@ -99,7 +132,6 @@ body {
 }
 
 #pagesDiv {
-    background: #E98074;
     height: 40px;
     padding: 5px 5px 5px 5px;
     width: 100%;
@@ -107,7 +139,6 @@ body {
 }
 
 #readDiv {
-    background: #E98074;
     height: 40px;
     padding: 5px 5px 5px 5px;
     width: 100%;
